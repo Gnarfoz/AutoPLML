@@ -1,0 +1,12 @@
+## Interface: 70100
+
+## Title: AutoPLML
+## Notes: Automatically switches to master looter on bosses that drop set items.
+## Notes-deDE: Stellt automatisch auf Plündermeister um bei Bossen, die Setteile droppen.
+
+## Version: @project-version@
+## Author: Gnarfoz
+## X-Email: gnarfoz@gmail.com
+## X-Category: Raid
+
+plml.lua
