@@ -11,7 +11,7 @@ bosses["Gul'dan"] = true
 local function check()
 	if not InCombatLockdown() then
 		local instance, type = IsInInstance()
-		if instance and type = "raid" then
+		if instance and type == "raid" then
 			for n=1,40 do
 				if UnitExists("raid"..n.."target") then
 					if bosses[UnitName("raid"..n.."target)] then
