@@ -1,5 +1,6 @@
 -- beware the loot gnomes
 local bosses = {}
+--bosses["Spellblade Aluriel"] = true --debug
 bosses["Trilliax"] = true
 bosses["Tichondrius"] = true
 bosses["Krosus"] = true
