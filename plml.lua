@@ -1,4 +1,5 @@
 -- beware the loot gnomes
+local masterlooter = "Venara"
 local debug = true
 
 local bosses = {}
@@ -25,10 +26,10 @@ local function check()
 			if found then
 				if GetLootMethod() ~= "master" then
 					print("ML für: " .. found)
-					SetLootMethod("master", "Venara")
 					if debug then
 						print("AutoPLML: Switching to master loot for " .. found)
 					end
+					SetLootMethod("master", masterlooter)
 				end
 			else
 				if GetLootMethod() ~= "personalloot" then
