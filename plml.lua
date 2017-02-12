@@ -22,16 +22,13 @@ local function check()
 	end
 end
 
-local function magic()
-	local timer = C_Timer.NewTimer(5, check)
-end
-
 local function OnEvent(self, event, ...)
 	if event == "ADDON_LOADED" then
 		if (select(1,...)) == "AutoPLML" then
 			AutoPLML:UnregisterAllEvents()
 			AutoPLML = nil
-			magic()
+
+			C_Timer.NewTicker(5, check)
 		end
 	end
 end		
