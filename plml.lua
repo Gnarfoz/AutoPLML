@@ -23,36 +23,36 @@ local function check()
 		if IsInInstance() then
 			local name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceMapID, instanceGroupSize = GetInstanceInfo()
 			if instanceType == "raid" and raids[instanceMapID] and difficulties[difficultyID] then
-			local found
-			for n=1,40 do
-				local unit = "raid"..n.."target"
-				if UnitExists(unit) and UnitName(unit) and not UnitIsCorpse(unit) and not UnitIsDead(unit) and not UnitPlayerControlled(unit) then
-					local _, _, _, _, _, mobId = strsplit("-", (UnitGUID(unit)))
-					local id = tonumber(mobId)
-					if bosses[id] then
-						found = UnitName(unit)
-						if debug then
-							print("AutoPLML: Found interesting mob: " .. found)
+				local found
+				for n=1,40 do
+					local unit = "raid"..n.."target"
+					if UnitExists(unit) and UnitName(unit) and not UnitIsCorpse(unit) and not UnitIsDead(unit) and not UnitPlayerControlled(unit) then
+						local _, _, _, _, _, mobId = strsplit("-", (UnitGUID(unit)))
+						local id = tonumber(mobId)
+						if bosses[id] then
+							found = UnitName(unit)
+							if debug then
+								print("AutoPLML: Found interesting mob: " .. found)
+							end
 						end
 					end
+					if found then break	end
 				end
-				if found then break	end
-			end
-			if found then
-				if GetLootMethod() ~= "master" then
-					if debug then
-						print("AutoPLML: Switching to master loot for " .. found)
+				if found then
+					if GetLootMethod() ~= "master" then
+						if debug then
+							print("AutoPLML: Switching to master loot for " .. found)
+						end
+						SetLootMethod("master", masterlooter)
 					end
-					SetLootMethod("master", masterlooter)
-				end
-			else
-				if GetLootMethod() ~= "personalloot" then
-					if debug then
-						print("AutoPLML: Nobody is targeting a set token boss, switching to personal loot.")
+				else
+					if GetLootMethod() ~= "personalloot" then
+						if debug then
+							print("AutoPLML: Nobody is targeting a set token boss, switching to personal loot.")
+						end
+						SetLootMethod("personalloot")
 					end
-					SetLootMethod("personalloot")
 				end
-			end
 			end
 		end
 	end
