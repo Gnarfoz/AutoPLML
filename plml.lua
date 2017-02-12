@@ -14,7 +14,6 @@ local function check()
 			for n=1,40 do
 				if UnitExists("raid"..n.."target") then
 					if bosses[UnitName("raid"..n.."target)] then
-						print("Interesting boss: " .. UnitName("raid"..n.."target"))
 					end
 				end
 			end
