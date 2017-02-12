@@ -1,4 +1,6 @@
 -- beware the loot gnomes
+local debug = true
+
 local bosses = {}
 bosses["Trilliax"] = true
 bosses["Tichondrius"] = true
@@ -24,10 +26,16 @@ local function check()
 				if GetLootMethod() ~= "master" then
 					print("ML für: " .. found)
 					SetLootMethod("master", "Venara")
+					if debug then
+						print("AutoPLML: Switching to master loot for " .. found)
+					end
 				end
 			else
 				if GetLootMethod() ~= "personalloot" then
 					print("PL, niemand hat einen interessanten Boss im Target.")
+					if debug then
+						print("AutoPLML: Nobody is targeting a set token boss, switching to personal loot.")
+					end
 					SetLootMethod("personalloot")
 				end
 			end
