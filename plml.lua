@@ -5,7 +5,7 @@ bosses["Trilliax"] = true
 bosses["Tichondrius"] = true
 bosses["Krosus"] = true
 bosses["Star Augur Etraeus"] = true
-bosses["Grand Magistrix Elisande"] = true
+bosses["Elisande"] = true
 bosses["Gul'dan"] = true
 
 local function check()
