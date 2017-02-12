@@ -2,6 +2,14 @@
 local masterlooter = "Venara"
 local debug = true
 
+local raids = {}
+raids[1530] = true	-- The Nighthold
+
+local difficulties = {}
+difficulties[14] = true	-- Normal
+difficulties[15] = true	-- Heroic
+difficulties[16] = true	-- Mythic
+
 local bosses = {}
 bosses[104288] = true	-- Trilliax
 bosses[103685] = true	-- Tichondrius
@@ -12,8 +20,9 @@ bosses[104154] = true	-- Gul'dan
 
 local function check()
 	if not InCombatLockdown() then
-		local instance, type = IsInInstance()
-		if instance and type == "raid" then
+		if IsInInstance() then
+			local name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceMapID, instanceGroupSize = GetInstanceInfo()
+			if instanceType == "raid" and raids[instanceMapID] and difficulties[difficultyID] then
 			local found
 			for n=1,40 do
 				local unit = "raid"..n.."target"
@@ -43,6 +52,7 @@ local function check()
 					end
 					SetLootMethod("personalloot")
 				end
+			end
 			end
 		end
 	end
