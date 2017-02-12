@@ -3,12 +3,12 @@ local masterlooter = "Venara"
 local debug = true
 
 local bosses = {}
-bosses["Trilliax"] = true
-bosses["Tichondrius"] = true
-bosses["Krosus"] = true
-bosses["Star Augur Etraeus"] = true
-bosses["Elisande"] = true
-bosses["Gul'dan"] = true
+bosses[104288] = true	-- Trilliax
+bosses[103685] = true	-- Tichondrius
+bosses[101002] = true	-- Krosus
+bosses[103758] = true	-- Star Augur Etraeus
+bosses[106643] = true	-- Elisande
+bosses[104154] = true	-- Gul'dan
 
 local function check()
 	if not InCombatLockdown() then
@@ -16,9 +16,12 @@ local function check()
 		if instance and type == "raid" then
 			local found
 			for n=1,40 do
-				if UnitExists("raid"..n.."target") then
-					if bosses[UnitName("raid"..n.."target")] then
-						found = UnitName("raid"..n.."target")
+				local unit = "raid"..n.."target"
+				if UnitExists(unit) and UnitName(unit) and not UnitIsCorpse(unit) and not UnitIsDead(unit) and not UnitPlayerControlled(unit) then
+					local _, _, _, _, _, mobId = strsplit("-", (UnitGUID(unit)))
+					local id = tonumber(mobId)
+					if bosses[id] then
+						found = UnitName(unit)
 					end
 				end
 				if found then break	end
