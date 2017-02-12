@@ -13,7 +13,7 @@ local function check()
 		if instance and type == "raid" then
 			for n=1,40 do
 				if UnitExists("raid"..n.."target") then
-					if bosses[UnitName("raid"..n.."target)] then
+					if bosses[UnitName("raid"..n.."target")] then
 					end
 				end
 			end
