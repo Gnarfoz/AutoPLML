@@ -11,11 +11,14 @@ local function check()
 	if not InCombatLockdown() then
 		local instance, type = IsInInstance()
 		if instance and type == "raid" then
+			local found
 			for n=1,40 do
 				if UnitExists("raid"..n.."target") then
 					if bosses[UnitName("raid"..n.."target")] then
+						found = UnitName("raid"..n.."target")
 					end
 				end
+			if found then break	end
 			end
 		end
 	end
