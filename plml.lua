@@ -25,7 +25,6 @@ local function check()
 			end
 			if found then
 				if GetLootMethod() ~= "master" then
-					print("ML für: " .. found)
 					if debug then
 						print("AutoPLML: Switching to master loot for " .. found)
 					end
@@ -33,7 +32,6 @@ local function check()
 				end
 			else
 				if GetLootMethod() ~= "personalloot" then
-					print("PL, niemand hat einen interessanten Boss im Target.")
 					if debug then
 						print("AutoPLML: Nobody is targeting a set token boss, switching to personal loot.")
 					end
