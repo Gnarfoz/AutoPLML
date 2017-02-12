@@ -22,6 +22,9 @@ local function check()
 					local id = tonumber(mobId)
 					if bosses[id] then
 						found = UnitName(unit)
+						if debug then
+							print("AutoPLML: Found interesting mob: " .. found)
+						end
 					end
 				end
 				if found then break	end
