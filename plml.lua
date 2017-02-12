@@ -20,6 +20,17 @@ local function check()
 				end
 			if found then break	end
 			end
+			if found then
+				if GetLootMethod() ~= "master" then
+					print("ML für: " .. found)
+					SetLootMethod("master", "Venara")
+				end
+			else
+				if GetLootMethod() ~= "personalloot" then
+					print("PL, niemand hat einen interessanten Boss im Target.")
+					SetLootMethod("personalloot")
+				end
+			end
 		end
 	end
 end
