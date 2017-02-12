@@ -21,7 +21,7 @@ local function check()
 						found = UnitName("raid"..n.."target")
 					end
 				end
-			if found then break	end
+				if found then break	end
 			end
 			if found then
 				if GetLootMethod() ~= "master" then
