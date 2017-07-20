@@ -1,9 +1,10 @@
 -- beware the loot gnomes
 local masterlooter = "Venara"
-local debug = true
+local debug = false
 
 local raids = {}
 raids[1530] = true	-- The Nighthold
+raids[1676] = true	-- Tomb of Sargeras
 
 local difficulties = {}
 difficulties[14] = true	-- Normal
@@ -11,12 +12,23 @@ difficulties[15] = true	-- Heroic
 difficulties[16] = true	-- Mythic
 
 local bosses = {}
-bosses[104288] = true	-- Trilliax
-bosses[103685] = true	-- Tichondrius
-bosses[101002] = true	-- Krosus
-bosses[103758] = true	-- Star Augur Etraeus
-bosses[106643] = true	-- Elisande
-bosses[104154] = true	-- Gul'dan
+--bosses[104288] = true	-- Trilliax
+--bosses[103685] = true	-- Tichondrius
+--bosses[101002] = true	-- Krosus
+--bosses[103758] = true	-- Star Augur Etraeus
+--bosses[106643] = true	-- Elisande
+--bosses[104154] = true	-- Gul'dan
+bosses[120996] = true -- Atrigan
+bosses[116691] = true -- Belac
+bosses[116407] = true -- Harjatan
+bosses[115767] = true -- Mistress Sassz'ine
+bosses[118462] = true -- Soul Queen Dejahna
+bosses[118460] = true -- Engine of Souls
+bosses[118289] = true -- Maiden of Vigilance
+bosses[120436] = true -- Fallen Avatar
+bosses[120437] = true -- Maiden of Valor
+bosses[117264] = true -- Maiden of Valor
+
 
 local function check()
 	if not InCombatLockdown() then
