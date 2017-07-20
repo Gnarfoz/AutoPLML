@@ -1,4 +1,4 @@
-## Interface: 70100
+## Interface: 70200
 
 ## Title: AutoPLML
 ## Notes: Automatically switches to master looter on bosses that drop set items.
